@@ -25,7 +25,7 @@ d3.json("/facilitytype").then(function (data) {
 
     // Define a layout object
     var layout = {
-        title: "Type of Facility Where EV Charger is Located",
+        title: "Number of Facilities Where EV Charger is Located",
     };
 
     // Create the plot

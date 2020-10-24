@@ -20,7 +20,7 @@
     <!-- Import some CSS, just to show how it's done. -->
     <link rel="stylesheet" type="text/css" href="static/css/style.css"></link>
 </head>
-
+<!-- Navbar -->
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" >EV Networks</a>
@@ -46,20 +46,19 @@
               <a class="nav-link" href="/map">Map</a>
             </li>
           </ul>
-            <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="text" placeholder="Search">
-              <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-            </form>
           </div>
       </nav>
-    <h2>Types of Connectors for EV Chargers</h2>
-
-    <h5>Not all electric vechiles have the same charging connector. Similar to phone charging cables, car charging cables tend to have two connectors, one that plugs into the vehicle socket and the other into the chargepoint itself. The type of connector you need varies by vehicle and the power rating ("speed") of the chargepoint. *</h5>
-    <h5>Electric vehicles either have a Type 1 or Type 2 socket for slow/fast charging and CHAdeMO or CCS for DC rapid charging.</h5>
-    <h5>Most slow/fast chargepoints have a Type 2 socket. Occasionally they will have a cable attached instead. All DC rapid charging stations have a cable attached with mostly a CHAdeMO and a CCS connector.</h5>
-    <h5>Most EV drivers purchase a portable charging cable that matches their vehicle’s Type 1 or Type 2 socket so that they can charge on public networks.</h5>
-    <br>
-    <a class="btn btn-primary btn-lg" href="https://www.youtube.com/watch?v=W2ALsQFm0_g" role="button">Learn more</a>    <br>
+      <!-- Card -->
+      <div class="card border-primary mb-3" style="vertical-align: middle;">
+        <div class="card-body" >
+          <h3 class="card-title">Types of Connectors for EV Chargers</h3>
+          <hr class="my-1">
+          <h6 class="card-text">Not all electric vechiles have the same charging connector. Similar to phone charging cables, car charging cables tend to have two connectors, one that plugs into the vehicle socket and the other into the chargepoint itself. The type of connector you need varies by vehicle and the power rating ("speed") of the chargepoint. Electric vehicles either have a Type 1 or Type 2 socket for slow/fast charging and CHAdeMO or CCS for DC rapid charging.</h6>
+          <h6 class="card-text">Most slow/fast chargepoints have a Type 2 socket. Occasionally they will have a cable attached instead. All DC rapid charging stations have a cable attached with mostly a CHAdeMO and a CCS connector. Most EV drivers purchase a portable charging cable that matches their vehicle’s Type 1 or Type 2 socket so that they can charge on public networks.</h6>
+          <br><a class="btn btn-primary btn-lg" href="https://www.youtube.com/watch?v=W2ALsQFm0_g" role="button">Learn more</a><br>
+        </div>
+      </div>
+     
     <!-- Placeholder for a plot -->
     <div class="container1">
         <div id="plot" style="width:700px"></div>
@@ -72,7 +71,9 @@
 
     <!-- Import the main JavaScript code. -->
     <script type="text/javascript" src="static/js/chargernetwork.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>
