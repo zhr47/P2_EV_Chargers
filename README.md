@@ -27,7 +27,7 @@ Instructions:
 
 5. Go back into DB Browser for SQLite and open the database (Project2.db)
     a.Go to the Execute SQL tab and run the following code: update EVData SET Facility_Type = ifnull (Facility_Type, "unknown")
-    b.In the same place, run the following code: update EVData SET EV_Network = ifnull (EV_Network, "unknown")
+    b.In the same place, run the following code: update EVData SET EV_Connector_Types = ifnull (EV_Connector_Types, "unknown")
 
 6. Open a Git Bash (Windows) or Terminal (Mac).a.Run python app.py
 
