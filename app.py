@@ -11,12 +11,6 @@ from sqlalchemy import create_engine
 import sqlite3
 import os
 
-# Define the database connection parameters
-# username = 'postgres'  # Ideally this would come from config.py (or similar)
-# password = '1234'  # Ideally this would come from config.py (or similar)
-# database_name = 'GlobalFirePower' # Created in Week 9, Night 1, Exercise 08-Stu_CRUD 
-# connection_string = f'postgresql://{username}:{password}@localhost:5432/{database_name}'
-
 # Connect to the database
 # engine = create_engine(connection_string)
 database_path = "Project2.db"
@@ -48,10 +42,7 @@ def OtherRoute():
     ''' This function runs when the user clicks the link for the other page.
         Note that the html file must be located in a folder called templates. '''
 
-    # Note that this call to render template passes in the title parameter. 
-    # That title parameter is a 'Shirley' variable that could be called anything 
-    # we want. But, since we're using it to specify the page title, we call it 
-    # what we do. The name has to match the parameter used in other.html. 
+
     webpage = render_template("other.html", title_we_want="EVData")
     return webpage
 
@@ -60,10 +51,7 @@ def MapRoute():
     ''' This function runs when the user clicks the link for the other page.
         Note that the html file must be located in a folder called templates. '''
 
-    # Note that this call to render template passes in the title parameter. 
-    # That title parameter is a 'Shirley' variable that could be called anything 
-    # we want. But, since we're using it to specify the page title, we call it 
-    # what we do. The name has to match the parameter used in other.html. 
+
     webpage = render_template("map.html", title_we_want="EVData")
     return webpage
 
@@ -72,10 +60,7 @@ def FacilityRoute():
     ''' This function runs when the user clicks the link for the other page.
         Note that the html file must be located in a folder called templates. '''
 
-    # Note that this call to render template passes in the title parameter. 
-    # That title parameter is a 'Shirley' variable that could be called anything 
-    # we want. But, since we're using it to specify the page title, we call it 
-    # what we do. The name has to match the parameter used in other.html. 
+
     webpage = render_template("facility_type.html", title_we_want="Facility Type")
     return webpage
 
@@ -83,9 +68,6 @@ def FacilityRoute():
 def ChargerRoute():
     webpage = render_template("chargernetwork.html", title_we_want="Charger Networks")
     return webpage    
-
-
-
 
 @app.route("/chargersperstate")
 def QueryChargersperstate():
@@ -95,13 +77,6 @@ def QueryChargersperstate():
     session = Session(engine)
     results = session.query(table.State).all()
     session.close()
-
-    # Create a list of dictionaries, with each dictionary containing one row from the query. 
-    # all_charger = []
-    # for State in results:
-    #     dict = {}
-    #     dict["State"] = State
-    #     all_charger.append(dict)
 
     chargercount = {}
     for State in results:
@@ -121,13 +96,6 @@ def QueryFacilityType():
     session = Session(engine)
     results = session.query(table.Facility_Type).all()
     session.close() 
-
-    # Create a list of dictionaries, with each dictionary containing one row from the query. 
-    # all_facilitytype = []
-    # for facilitytype in results:
-    #     dict = {}
-    #     dict["facilitytype"] = type
-    #     all_facilitytype.append(dict)
 
     facilitycount = {}
     for Facility_Type in results:
