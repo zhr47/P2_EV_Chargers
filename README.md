@@ -25,7 +25,7 @@ Instructions:
     c.Run jupyter notebook 
     d.Once in the notebook, run all the cells. You will not need an API key as it is already saved in the code. (The code will call the API, create a table within the database you just created, and save it).
 
-5. Go back into DB Browser for SQLite and open the database (Project2.db)
+5. Go back into DB Browser for SQLite and open the database (Project2.db). The Project2(1) files & schema(1) are the established database files, however these instructions are to remake these same files.
     a.  Go to the Execute SQL tab and run the following code: update EVData SET Facility_Type = ifnull  (Facility_Type, "unknown")
     b.  In the same place, run the following code: update EVData SET EV_Connector_Types = ifnull (EV_Connector_Types, "unknown")
     c.  Now set a column as a primary key. Clikc on Database Structure tab then right click EVData under the Tables arrow then Modify Table.
