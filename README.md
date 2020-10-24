@@ -26,8 +26,10 @@ Instructions:
     d.Once in the notebook, run all the cells. You will not need an API key as it is already saved in the code. (The code will call the API, create a table within the database you just created, and save it).
 
 5. Go back into DB Browser for SQLite and open the database (Project2.db)
-    a.Go to the Execute SQL tab and run the following code: update EVData SET Facility_Type = ifnull (Facility_Type, "unknown")
-    b.In the same place, run the following code: update EVData SET EV_Connector_Types = ifnull (EV_Connector_Types, "unknown")
+    a.  Go to the Execute SQL tab and run the following code: update EVData SET Facility_Type = ifnull  (Facility_Type, "unknown")
+    b.  In the same place, run the following code: update EVData SET EV_Connector_Types = ifnull (EV_Connector_Types, "unknown")
+    c.  Now set a column as a primary key. Clikc on Database Structure tab then right click EVData under the Tables arrow then Modify Table.
+    d.  Under the Modify Table menu click on "PK" to set the index column as a Primary Key.
 
 6. Open a Git Bash (Windows) or Terminal (Mac).a.Run python app.py
 
