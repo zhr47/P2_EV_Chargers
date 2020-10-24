@@ -81,8 +81,9 @@ def FacilityRoute():
 
 @app.route("/chargernetwork")
 def ChargerRoute():
-    webpage = render_templete("chargernetwork.html", title_we_want="Charger Networks")
+    webpage = render_template("chargernetwork.html", title_we_want="Charger Networks")
     return webpage    
+
 
 
 
@@ -119,7 +120,7 @@ def QueryFacilityType():
     # Open a session, run the query, and then close the session again
     session = Session(engine)
     results = session.query(table.Facility_Type).all()
-    session.close 
+    session.close() 
 
     # Create a list of dictionaries, with each dictionary containing one row from the query. 
     # all_facilitytype = []
@@ -158,7 +159,8 @@ def QuerynewLocations():
 
     # Open a session, run the query, and then close the session again
     session = Session(engine)
-    results = session.query(table.Latitude, table.Longitude, table.State).all()
+    results = session.query(table.Latitude, table.Longitude, table.State, table.Street_Address, table.EV_Connector_Types, table.EV_Network,
+                            table.City, table.ZIP).all()
     session.close()
 
     # Create a list of dictionaries, with each dictionary containing one row from the query. 
@@ -168,34 +170,41 @@ def QuerynewLocations():
         dict["lat"] = result[0]
         dict["lon"] = result[1]
         dict["state"] = result[2]
+        dict["address"] = result[3]
+        dict["ctype"] = result[4]
+        dict["network"] = result [5]
+        dict["city"] = result [6]
+        dict["zip"] = result [7]
         all_cord.append(dict)
 
     # Return the jsonified result. 
     return jsonify(all_cord)
 
-@app.route("/evnetwork")
-def QueryEV_Network():
+@app.route("/networks")
+def QueryNetwork():
     ''' Query the database for facility types and return the results as a JSON. '''
-
+    
     # Open a session, run the query, and then close the session again
     session = Session(engine)
-    results = session.query(table.EV_Network).all()
-    session.close 
-
-    evnetwork = {}
-    for EV_Network in results:
-        if (EV_Network[0] in evnetwork):
-            evnetwork[EV_Network[0]]+=1
+    results = session.query(table.EV_Connector_Types).all()
+    session.close()
+    
+    connectortype = {}
+    for EV_Connector_Type in results:
+        if (EV_Connector_Type[0] in connectortype):
+            connectortype[EV_Connector_Type[0]]+=1
         else:
-            evnetwork[EV_Network[0]] = 1
+            connectortype[EV_Connector_Type[0]] = 1
+    
 
-    # Return the jsonified result. 
-    return jsonify(evnetwork)
+    # # Return the jsonified result. 
+    return jsonify(connectortype)
 
 
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 # @app.route("/test")
 # def TestRoute():
 #     ''' This function returns a simple message, just to guarantee that

@@ -2,22 +2,34 @@
 console.log("Loaded chargernetwork.js");
 
 // Query the endpoint that returns a JSON ...
-d3.json("/evnetwork").then(function (data) {
-
+d3.json("/networks").then(function (data) {
+    // console.log(data);
     // ... and dump that JSON to the console for inspection
-    console.log(data); 
 
     // Next, pull out the keys and the values for graphing
     keys = Object.keys(data);
     values = Object.values(data);
+     
 
     // Create the trace
     var trace = {
-        x: keys,
-        y: values,
-        type: "bar"
+        // x: keys,
+        // y: values,
+        type: "table",
+            header: { 
+                values: [["<b>Connector Type<b>"], ["<b>Number of Connectors<b>"]],
+                align: ["left", "center"],
+                fill: {color: '#119DFF'},
+                },
+            cells: {
+                values: [keys, values],
+                align: ["left", "center"],
+                line: {color: "#506784", width: 1},
+                fill: {color: ['#25FEFD', 'white']},
+                }
     };
-    console.log(trace);
+
+    // console.log(trace);
 
     // Put the trace into an array (which allows us to graph
     // multiple traces, if we wish)
@@ -25,7 +37,7 @@ d3.json("/evnetwork").then(function (data) {
 
     // Define a layout object
     var layout = {
-        title: "Number of Chargers in Each Charger Network",
+        title: "Types of Connectors",
     };
 
     // Create the plot

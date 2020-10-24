@@ -1,7 +1,7 @@
 // Creating map object
 var myMap = L.map("map", {
     center: [38.51073, -96.4247],
-    zoom: 5
+    zoom: 4
   });
   
   // Adding tile layer to the map
@@ -17,7 +17,7 @@ var myMap = L.map("map", {
 // Grab the data with d3
 d3.json("/newlocations").then(function(response) {
   
-  console.log(response);
+  // console.log(response);
   
   // Create a new marker cluster group
   var markers = L.markerClusterGroup();
@@ -31,8 +31,9 @@ d3.json("/newlocations").then(function(response) {
     // // Check for location property
     if (location) {
       // Add a new marker to the cluster group and bind a pop-up
-      console.log("Adding Marker");
-      markers.addLayer(L.marker([location["lat"], location["lon"]]));
+      // console.log("Adding Marker");
+      markers.addLayer(L.marker([location["lat"], location["lon"]]).bindPopup(location["address"] + '<br>' + location["city"] + ", " + location["state"] + " " +  location["zip"] + '<br>' + location["network"] + '<br>' + location["ctype"]));
+      // console.log(markers)
     }
   }
   // Add our marker cluster layer to the map

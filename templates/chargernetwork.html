@@ -4,13 +4,15 @@
 
 <head>
     <meta charset="UTF-8">
-    <!-- Here, just for grins, I'm populating the title with a parameter 
-         that gets specified in the call to render_template() in app.py. 
-         Go to app.py and see the '/other' route for details. -->
-    <title>Charger Network Table</title>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="https://d3js.org/d3.v5.min.js"></script> 
+    <title>Charger Networks</title>
 
+    <!-- Import the Plotly library. Note that this has to 
+         happen before we importa any code that uses Plotly. -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- Import the D3 library. Note that this has to happen 
+    before we import any code that uses D3. -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
 
     <!-- Import some CSS, just to show how it's done. -->
     <link rel="stylesheet" type="text/css" href="static/css/style.css"></link>
@@ -19,16 +21,22 @@
 <body>
     <h1>This is chargernetwork.html</h1>
 
+    <h2>Note: This demonstration assumes you have the GlobalFirePower database we created</h2>
+    <h2>during Week 9, Night 1, Activity 08-Stu_CRUD. If you don't have this database, you'll</h2> 
+    <h2>have to modify the code in app.py accordingly.</h2>
+
+    <h3>Also, be sure to update the PostgreSQL username and password in app.py!</h3>
+
+    <!-- Placeholder for a plot -->
     <div id="plot"></div>
 
-    <br>
+    <!-- Create a hyperlink that calls the '/other' route when clicked. 
+         Go to app.py to see how that '/other' route is defined. -->
+    <a href="/other">Click here for the other page!</a>
 
-    <!-- Define a link that takes us back to the index route. 
-         Note that this doesn't call index.html directly, but 
-         instead executes the code for the index route in app.py. -->
-    <a href="/">Click here to return home!</a>
-
+    <!-- Import the main JavaScript code. -->
     <script type="text/javascript" src="static/js/chargernetwork.js"></script>
+
 </body>
 
 </html>
